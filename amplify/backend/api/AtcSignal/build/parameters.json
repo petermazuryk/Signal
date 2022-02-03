@@ -1,0 +1,7 @@
+{
+    "AppSyncApiName": "AtcSignal",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "S3DeploymentBucket": "amplify-atcsignal-staging-193125-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/4988b4535f0ce516eb7ba68aabb69b550f0030db"
+}

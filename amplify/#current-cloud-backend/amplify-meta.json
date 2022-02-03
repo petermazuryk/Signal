@@ -1,0 +1,126 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-atcsignal-staging-193125-authRole",
+      "UnauthRoleArn": "arn:aws:iam::363562007593:role/amplify-atcsignal-staging-193125-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::363562007593:role/amplify-atcsignal-staging-193125-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-atcsignal-staging-193125-deployment",
+      "UnauthRoleName": "amplify-atcsignal-staging-193125-unauthRole",
+      "StackName": "amplify-atcsignal-staging-193125",
+      "StackId": "arn:aws:cloudformation:eu-central-1:363562007593:stack/amplify-atcsignal-staging-193125/b636a6f0-845e-11ec-a90f-06a71dd10ac2",
+      "AmplifyAppId": "d2joewxpvunoj6",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-atcsignal-staging-193125-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    }
+  },
+  "api": {
+    "AtcSignal": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "s3h4mzpuafbanpiks7t3pn4bva",
+        "GraphQLAPIEndpointOutput": "https://xdi57jtihfftrhmbl2kktic4e4.appsync-api.eu-central-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-lin5kh5mfzfmvjag2xhuvd5ipq"
+      },
+      "lastPushTimeStamp": "2022-02-02T21:04:43.705Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-atcsignal-staging-193125-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiAtcSignal"
+      }
+    }
+  },
+  "auth": {
+    "AtcSignal": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "AtcSignalPostConfirmation",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-atcsignal-staging-193125-deployment/amplify-cfn-templates/auth/AtcSignal-cloudformation-template.json",
+        "logicalId": "authAtcSignal"
+      },
+      "lastPushTimeStamp": "2022-02-02T21:04:43.868Z",
+      "output": {
+        "UserPoolId": "eu-central-1_CUgGBuQzB",
+        "AppClientIDWeb": "34jlde3b2j0gn45cj3jqruru5p",
+        "AppClientID": "io2g2l8hr5973rmrta2o1grne",
+        "IdentityPoolId": "eu-central-1:a43b7f0c-43bb-45b3-9858-83760fb9a832",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-central-1:363562007593:userpool/eu-central-1_CUgGBuQzB",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "AtcSignal"
+      },
+      "lastPushDirHash": "OHpqe8EbdBnaZnH/MeYMVgfrosA="
+    }
+  },
+  "function": {
+    "AtcSignalPostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2022-02-02T21:01:15.285Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2022-02-02T21:01:17.952Z",
+      "distZipFilename": "AtcSignalPostConfirmation-74323237374d75655678-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-atcsignal-staging-193125-deployment",
+        "s3Key": "amplify-builds/AtcSignalPostConfirmation-74323237374d75655678-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-atcsignal-staging-193125-deployment/amplify-cfn-templates/function/AtcSignalPostConfirmation-cloudformation-template.json",
+        "logicalId": "functionAtcSignalPostConfirmation"
+      },
+      "lastPushTimeStamp": "2022-02-02T21:04:43.868Z",
+      "output": {
+        "Region": "eu-central-1",
+        "Arn": "arn:aws:lambda:eu-central-1:363562007593:function:AtcSignalPostConfirmation-staging",
+        "Name": "AtcSignalPostConfirmation-staging",
+        "LambdaExecutionRole": "AtcSignalPostConfirmation-staging"
+      },
+      "lastPushDirHash": "EAFp99T+DHa8XvMIna9eUudiNfY="
+    }
+  }
+}
